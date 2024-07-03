@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5csri70lk0r2"]
+
+[ext_resource type="PackedScene" uid="uid://r8sxcrevblfy" path="res://Simulations/Automation/Views/AutomationDrawingModeView.tscn" id="1_yrry8"]
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationDrawingModeView.cs" id="2_catv8"]
+
+[node name="UniversalAutomationDrawingModeView" instance=ExtResource("1_yrry8")]
+script = ExtResource("2_catv8")
+DrawingModeCheckButtonPath = NodePath("DrawingModeCheckButton")
+DrawingModeControlsBoxPath = NodePath("DrawingModeControls")
+BrushShapesBoxPath = NodePath("DrawingModeControls/VBoxContainer/BrushShapesBox")
+BrushRadiusLabelPath = NodePath("DrawingModeControls/BrushRadiusBox/HBoxContainer/BrushRadiusLabel")
+BrushRadiusSliderPath = NodePath("DrawingModeControls/BrushRadiusBox/BrushRadiusSlider")
+BrushCellStatesBoxPath = NodePath("DrawingModeControls/VBoxContainer2/BrushCellStatesBox")

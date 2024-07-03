@@ -1,0 +1,184 @@
+[gd_scene load_steps=8 format=3 uid="uid://s0cequru2k5e"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_j6ysr"]
+[ext_resource type="Script" path="res://Simulations/ArtLife/Views/ArtLifeMenuView.cs" id="1_jwann"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichCheckButton.cs" id="4_34n85"]
+[ext_resource type="Texture2D" uid="uid://cil8rj7s8duj8" path="res://Assets/Icons/ArtLife/Substances/organics.png" id="4_epefk"]
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="12_vh47n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmaas"]
+content_margin_left = 8.0
+content_margin_right = 2.0
+bg_color = Color(0.121569, 0.12549, 0.133333, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dpve"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.223529, 0.239216, 0.278431, 0.937255)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="ArtificialLifeMenuView" type="Control"]
+layout_mode = 3
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.639984
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j6ysr")
+script = ExtResource("1_jwann")
+SubstancesCheckButtonPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/SubstancesCheckButton")
+TemperatureCheckButtonPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TemperatureCheckButton")
+AcidityCheckButtonPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/AcidityCheckButton")
+CreaturesCheckButtonPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/CreaturesCheckButton")
+SubstancesAndCreaturesCheckButtonPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/SubstancesAndCreaturesCheckButton")
+TemperatureAndCreaturesCheckButtonPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TemperatureAndCreaturesCheckButton")
+SubstanceToggleButtonsBoxPath = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/SubstanceToggleButtonsBox")
+TitlePanelContainerPath = NodePath("VBoxContainer/TitlePanelContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmaas")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_SIMULATION_MENU"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "    "
+icon = ExtResource("12_vh47n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0dpve")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+follow_focus = true
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Режим отображения ячеек"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SubstancesCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Вещества"
+expand_icon = true
+script = ExtResource("4_34n85")
+
+[node name="TemperatureCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Температура"
+script = ExtResource("4_34n85")
+
+[node name="AcidityCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Кислотность"
+script = ExtResource("4_34n85")
+
+[node name="CreaturesCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Создания"
+script = ExtResource("4_34n85")
+
+[node name="SubstancesAndCreaturesCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Вещества + Создания"
+script = ExtResource("4_34n85")
+
+[node name="TemperatureAndCreaturesCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Температура + Создания"
+script = ExtResource("4_34n85")
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SubstanceToggleButtonsBox" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_epefk")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Органика"

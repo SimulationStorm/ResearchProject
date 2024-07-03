@@ -1,0 +1,296 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhr4y6ntu7r5e"]
+
+[ext_resource type="Script" path="res://Core/Views/ControlPanelView.cs" id="1_h828v"]
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_ynnw1"]
+[ext_resource type="StyleBox" uid="uid://b2nmqe84p215t" path="res://Assets/StyleBoxes/PanelTitleStyleBox.tres" id="3_8tg2c"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichColorPickerButton.cs" id="3_yb5sk"]
+[ext_resource type="PackedScene" uid="uid://kjx3i8ycycyw" path="res://Core/Views/CloseButton.tscn" id="4_fio2b"]
+[ext_resource type="Script" path="res://Addons/RichControls/Ranges/RichHSlider.cs" id="4_ft123"]
+[ext_resource type="StyleBox" uid="uid://dt1ku81fshfyg" path="res://Assets/StyleBoxes/PanelBodyStyleBox.tres" id="5_udfa1"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichCheckButton.cs" id="5_v2a6o"]
+[ext_resource type="Script" path="res://Addons/RichControls/Ranges/ItemsHSlider.cs" id="6_stvmy"]
+
+[node name="ControlPanelView" type="Control"]
+layout_mode = 3
+anchor_right = 0.140021
+anchor_bottom = 0.272
+offset_right = 1.1597
+offset_bottom = 0.23999
+theme = ExtResource("1_ynnw1")
+script = ExtResource("1_h828v")
+SimulationSpeedLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer/HBoxContainer/SimulationSpeedLabel")
+SimulationSpeedMuLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer/HBoxContainer/SimulationSpeedMULabel")
+SimulationSpeedUnlimitedLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer/HBoxContainer/SimulationSpeedUnlimitedLabel")
+SimulationSpeedSliderPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/SimulationSpeedSlider")
+ViewScaleLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ViewScaleBox/HBoxContainer/ViewScaleLabel")
+ViewScaleSliderPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ViewScaleBox/ViewScaleSlider")
+SkipFramesCheckButtonPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton")
+SkipFramesLabelsBoxPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox")
+SkipFramesLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox/FramesToSkipLabel")
+SkipEveryLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox/SkipEveryLabel")
+SkipAllLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox/SkipAllLabel")
+SkipFramesSliderPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesSlider")
+CellSizeLabelPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox/HBoxContainer/HBoxContainer/CellSizeLabel")
+CellSizeItemsSliderPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox/CellSizeItemsHSlider")
+GridLinesCheckButtonPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/GridLinesCheckButton")
+GridLinesColorPickerButtonPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/GridLinesCheckButton/GridLinesColorPickerButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_8tg2c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_CONTROL_PANEL"
+vertical_alignment = 1
+
+[node name="CloseButton" parent="VBoxContainer/TitlePanelContainer/HBoxContainer" instance=ExtResource("4_fio2b")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_udfa1")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SimulationSpeedBox" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_SIMULATION_SPEED"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SimulationSpeedLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 12
+text = "1000"
+vertical_alignment = 1
+
+[node name="SimulationSpeedMULabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 12
+text = "KEY_MU_SIMULATION_SPEED"
+vertical_alignment = 1
+
+[node name="SimulationSpeedUnlimitedLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox/HBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 12
+text = "KEY_SIMULATION_SPEED_UNLIMITED"
+vertical_alignment = 1
+
+[node name="SimulationSpeedSlider" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/SimulationSpeedBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 1000.0
+value = 1.0
+exp_edit = true
+rounded = true
+script = ExtResource("4_ft123")
+
+[node name="CellSizeBox" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_CELL_SIZE"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="CellSizeLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 12
+text = "10 x 10"
+vertical_alignment = 1
+
+[node name="CellSizeMULabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 12
+text = "KEY_MU_PIXELS"
+vertical_alignment = 1
+
+[node name="CellSizeItemsHSlider" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/CellSizeBox"]
+layout_mode = 2
+script = ExtResource("6_stvmy")
+
+[node name="ViewScaleBox" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/ViewScaleBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ViewScaleBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_FIELD_SCALE"
+vertical_alignment = 1
+
+[node name="ViewScaleLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ViewScaleBox/HBoxContainer"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 12
+text = "1000 %"
+vertical_alignment = 1
+
+[node name="ViewScaleSlider" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/ViewScaleBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 1000.0
+value = 1.0
+exp_edit = true
+script = ExtResource("4_ft123")
+
+[node name="SkipFramesBox" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SkipFramesCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+button_pressed = true
+text = "KEY_SKIP_FRAMES"
+script = ExtResource("5_v2a6o")
+
+[node name="SkipFramesLabelsBox" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.345
+anchor_top = 0.028
+anchor_right = 0.841
+anchor_bottom = 0.878
+offset_left = -1.88899
+offset_top = 0.00799984
+offset_right = 0.119019
+offset_bottom = 0.00799942
+grow_horizontal = 0
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="SkipEveryLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "KEY_SKIP_EVERY"
+
+[node name="FramesToSkipLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "1"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SkipAllLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox/SkipFramesCheckButton/SkipFramesLabelsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "KEY_SKIP_ALL"
+
+[node name="SkipFramesSlider" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer/SkipFramesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 1000.0
+value = 1.0
+exp_edit = true
+rounded = true
+script = ExtResource("4_ft123")
+
+[node name="GridLinesCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+button_pressed = true
+text = "KEY_FIELD_GRID"
+script = ExtResource("5_v2a6o")
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/GridLinesCheckButton"]
+visible = false
+layout_mode = 2
+offset_left = 161.0
+offset_top = 5.0
+offset_right = 233.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 12
+text = "Цвет линий"
+vertical_alignment = 1
+
+[node name="GridLinesColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/PanelContainer/VBoxContainer/GridLinesCheckButton"]
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+anchor_left = 0.640902
+anchor_top = -0.0998
+anchor_right = 0.773517
+anchor_bottom = 1.15
+offset_left = -0.12001
+offset_top = -0.00400019
+offset_right = -2.11603
+offset_bottom = -1.0
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+script = ExtResource("3_yb5sk")
+metadata/_edit_use_anchors_ = true

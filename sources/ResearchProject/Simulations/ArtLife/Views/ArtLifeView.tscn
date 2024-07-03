@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce617dlua471p"]
+
+[ext_resource type="Script" path="res://Simulations/ArtLife/Views/ArtLifeView.cs" id="1_2thjq"]
+[ext_resource type="PackedScene" uid="uid://7asueprr7f5t" path="res://Simulations/ArtLife/Views/ArtLifeFieldView.tscn" id="2_nxves"]
+[ext_resource type="PackedScene" uid="uid://gllg1j2t4hl2" path="res://Simulations/ArtLife/Views/ArtLifeFieldUiView.tscn" id="3_jdqt1"]
+[ext_resource type="PackedScene" uid="uid://s0cequru2k5e" path="res://Simulations/ArtLife/Views/ArtLifeMenuView.tscn" id="3_wfvm1"]
+[ext_resource type="PackedScene" uid="uid://87pst32rff6c" path="res://Simulations/ArtLife/Views/ArtLifeStatsPanelView.tscn" id="4_yqdw2"]
+[ext_resource type="PackedScene" uid="uid://d0fejw2u32f4u" path="res://Simulations/ArtLife/Views/CellInfoPanelView.tscn" id="5_usx1i"]
+[ext_resource type="PackedScene" uid="uid://cf2feotlovyvc" path="res://Simulations/ArtLife/Views/WorldEnvPanelView.tscn" id="6_jbm7k"]
+
+[node name="ArtificialLifeView" type="Node"]
+script = ExtResource("1_2thjq")
+FieldViewPath = NodePath("SubViewportContainer/SubViewport/ArtLifeFieldView")
+FieldUiViewPath = NodePath("SubViewportContainer/SubViewport/ArtLifeFieldUiView")
+MenuViewPath = NodePath("ArtLifeMenuView")
+StatsPanelViewPath = NodePath("ArtLifeStatsPanelView")
+WorldEnvPanelViewPath = NodePath("WorldEnvPanel")
+CellInfoPanelViewPath = NodePath("CellInfoPanelView")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="ArtLifeFieldView" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_nxves")]
+
+[node name="ArtLifeFieldUiView" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_jdqt1")]
+
+[node name="ArtLifeMenuView" parent="." instance=ExtResource("3_wfvm1")]
+anchor_left = 0.780583
+anchor_top = 0.04
+anchor_right = 0.997
+anchor_bottom = 0.321074
+offset_left = -13.72
+offset_top = 0.799995
+offset_right = 0.759888
+offset_bottom = 1.24002
+
+[node name="ArtLifeStatsPanelView" parent="." instance=ExtResource("4_yqdw2")]
+anchor_left = 0.003
+anchor_top = 0.643
+anchor_right = 0.144479
+anchor_bottom = 0.853
+offset_left = -0.76
+offset_top = -17.44
+offset_right = -0.400024
+offset_bottom = -17.2401
+
+[node name="WorldEnvPanel" parent="." instance=ExtResource("6_jbm7k")]
+anchor_left = 0.003
+anchor_top = 0.857444
+anchor_right = 0.198
+anchor_bottom = 0.995
+offset_left = -0.76
+offset_top = -0.0400391
+offset_right = 0.839966
+offset_bottom = 0.399902
+
+[node name="CellInfoPanelView" parent="." instance=ExtResource("5_usx1i")]
+anchor_left = 0.853
+anchor_top = 0.784
+anchor_right = 0.997
+anchor_bottom = 0.995
+offset_left = -0.760132
+offset_top = -14.72
+offset_right = 0.760498
+offset_bottom = -14.6002

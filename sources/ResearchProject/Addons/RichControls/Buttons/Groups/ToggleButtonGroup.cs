@@ -1,0 +1,1 @@
+﻿public partial class ToggleButtonGroup : Godot.RichControls.Buttons.Groups.ToggleButtonGroup { }

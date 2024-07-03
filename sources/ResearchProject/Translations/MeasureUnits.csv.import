@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cjc680thlkv6m"
+
+[deps]
+
+files=["res://Translations/MeasureUnits.ru.translation", "res://Translations/MeasureUnits.en.translation"]
+
+source_file="res://Translations/MeasureUnits.csv"
+dest_files=["res://Translations/MeasureUnits.ru.translation", "res://Translations/MeasureUnits.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

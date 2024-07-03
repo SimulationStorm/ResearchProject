@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjq4c07ycaru0"]
+
+[ext_resource type="Script" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationFieldView.cs" id="1_mm45a"]
+
+[node name="LifeLikeAutomationFieldView" type="Node2D"]
+script = ExtResource("1_mm45a")

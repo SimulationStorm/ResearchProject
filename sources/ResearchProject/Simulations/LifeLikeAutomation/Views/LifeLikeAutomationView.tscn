@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://42iljwtmtd45"]
+
+[ext_resource type="Script" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationView.cs" id="1_av6ib"]
+[ext_resource type="PackedScene" uid="uid://bjq4c07ycaru0" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationFieldView.tscn" id="2_128f6"]
+[ext_resource type="PackedScene" uid="uid://5cvy7eelt637" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationMenuView.tscn" id="2_xp8fn"]
+[ext_resource type="PackedScene" uid="uid://ccpycc7la1xji" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationStatsPanelView.tscn" id="3_1rpqh"]
+[ext_resource type="PackedScene" uid="uid://dxxn0ia6xst1p" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationFieldUiView.tscn" id="3_awgq1"]
+
+[node name="LifeLikeAutomationView" type="Node"]
+script = ExtResource("1_av6ib")
+FieldViewPath = NodePath("SubViewportContainer/SubViewport/LifeLikeAutomationFieldView")
+FieldUiViewPath = NodePath("SubViewportContainer/SubViewport/LifeLikeAutomationFieldUiView")
+MenuViewPath = NodePath("LifeLikeAutomationMenuView")
+StatsPanelViewPath = NodePath("LifeLikeAutomationStatsPanelView")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="LifeLikeAutomationFieldView" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_128f6")]
+
+[node name="LifeLikeAutomationFieldUiView" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_awgq1")]
+
+[node name="LifeLikeAutomationMenuView" parent="." instance=ExtResource("2_xp8fn")]
+anchor_left = 0.765563
+anchor_top = 0.0464815
+anchor_right = 0.997
+anchor_bottom = 0.994003
+offset_left = -2.88037
+offset_top = -2.19999
+offset_right = -2.24011
+offset_bottom = -1.52368
+
+[node name="LifeLikeAutomationStatsPanelView" parent="." instance=ExtResource("3_1rpqh")]
+anchor_left = 0.003
+anchor_top = 0.532
+anchor_right = 0.419
+anchor_bottom = 0.995
+offset_left = 2.24
+offset_top = -2.56
+offset_right = 3.51996
+offset_bottom = -2.6001

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbsmn2yfb1e1a"]
+
+[ext_resource type="Script" path="res://Core/Views/MainView.cs" id="1_80ofq"]
+[ext_resource type="PackedScene" uid="uid://cv7sap1sshudg" path="res://Core/Views/TopPanelView.tscn" id="2_k52i7"]
+[ext_resource type="PackedScene" uid="uid://dhr4y6ntu7r5e" path="res://Core/Views/ControlPanelView.tscn" id="4_n53yr"]
+[ext_resource type="PackedScene" path="res://Core/Views/SimulationManagerView.tscn" id="5_l6mwq"]
+[ext_resource type="PackedScene" uid="uid://1slhgs6upasj" path="res://Core/Views/BasicInfoPanelView.tscn" id="5_n57qj"]
+[ext_resource type="PackedScene" uid="uid://ij04am0xxnq" path="res://Core/Views/HelpPanelView.tscn" id="6_0vr8x"]
+[ext_resource type="PackedScene" uid="uid://ijnk58iv7oqn" path="res://Core/Views/SettingsPanelView.tscn" id="7_jssmg"]
+
+[node name="MainView" type="Node"]
+script = ExtResource("1_80ofq")
+TopPanelViewPath = NodePath("TopPanelView")
+ControlPanelViewPath = NodePath("ControlPanelView")
+BasicInfoPanelViewPath = NodePath("BasicInfoPanelView")
+HelpPanelViewPath = NodePath("HelpPanelView")
+SettingsPanelViewPath = NodePath("SettingsPanelView")
+SimulationManagerViewPath = NodePath("SimulationManagerView")
+metadata/_edit_vertical_guides_ = []
+
+[node name="SimulationManagerView" parent="." instance=ExtResource("5_l6mwq")]
+
+[node name="TopPanelView" parent="." instance=ExtResource("2_k52i7")]
+anchor_bottom = 0.035
+offset_bottom = 0.200001
+
+[node name="BasicInfoPanelView" parent="." instance=ExtResource("5_n57qj")]
+anchor_left = 0.005
+anchor_top = 0.043
+anchor_right = 0.143375
+anchor_bottom = 0.174889
+offset_left = -0.6
+offset_top = 7.56
+offset_right = 3.71997
+offset_bottom = 8.12
+grow_vertical = 1
+
+[node name="ControlPanelView" parent="." instance=ExtResource("4_n53yr")]
+anchor_top = 0.194
+anchor_right = 0.143
+anchor_bottom = 0.461
+offset_left = 8.0
+offset_top = 3.48
+offset_right = 3.44
+offset_bottom = 4.12
+
+[node name="HelpPanelView" parent="." instance=ExtResource("6_0vr8x")]
+offset_left = 480.0
+offset_top = 270.0
+offset_right = 800.64
+offset_bottom = 450.36
+
+[node name="SettingsPanelView" parent="." instance=ExtResource("7_jssmg")]
+anchor_left = 0.430396
+anchor_top = 0.437
+anchor_right = 0.569604
+anchor_bottom = 0.563
+offset_left = 0.639954
+offset_top = 0.039978
+offset_right = -0.640015
+offset_bottom = -0.0400391
+size_flags_horizontal = 6
+size_flags_vertical = 6

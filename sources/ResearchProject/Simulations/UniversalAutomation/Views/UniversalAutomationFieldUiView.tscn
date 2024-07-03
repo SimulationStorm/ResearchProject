@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cax6s14fs1h21"]
+
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationFieldUiView.cs" id="1_y4m1e"]
+
+[node name="UniversalAutomationFieldUiView" type="Node2D"]
+script = ExtResource("1_y4m1e")

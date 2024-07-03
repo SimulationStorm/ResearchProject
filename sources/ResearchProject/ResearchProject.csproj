@@ -1,0 +1,35 @@
+<Project Sdk="Godot.NET.Sdk/4.2.0">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>Enable</Nullable>
+    <RootNamespace>ResearchProject</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="SkiaSharp" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp.HarfBuzz" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="2.88.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EasyBindings">
+      <HintPath>..\..\libraries\EasyBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Godot.RichControls">
+      <HintPath>..\..\libraries\Godot.RichControls.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveChartsCore">
+      <HintPath>..\..\libraries\LiveChartsCore.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveChartsCore.SkiaSharpView">
+      <HintPath>..\..\libraries\LiveChartsCore.SkiaSharpView.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveChartsCore.SkiaSharpView.Godot">
+      <HintPath>..\..\libraries\LiveChartsCore.SkiaSharpView.Godot.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Godot">
+      <HintPath>..\..\libraries\SkiaSharp.Views.Godot.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

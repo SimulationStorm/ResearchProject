@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf2feotlovyvc"]
+
+[ext_resource type="Script" path="res://Simulations/ArtLife/Views/WorldEnvPanelView.cs" id="1_bxj04"]
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_ef4nr"]
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="2_pye16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6xl2"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.121569, 0.12549, 0.133333, 0.937255)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxw15"]
+content_margin_left = 8.0
+content_margin_right = 2.0
+bg_color = Color(0.121569, 0.12549, 0.133333, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iums7"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.223529, 0.239216, 0.278431, 0.937255)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="WorldEnvPanel" type="Control"]
+layout_mode = 3
+anchor_right = 0.153646
+anchor_bottom = 0.0916667
+offset_right = 80.9997
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ef4nr")
+script = ExtResource("1_bxj04")
+YearNumberLabelPath = NodePath("VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/HBoxContainer2/YearNumberLabel")
+DayNumberLabelpath = NodePath("VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/HBoxContainer3/DayNumberLabel")
+IndicatorStyleBox = SubResource("StyleBoxFlat_t6xl2")
+YearSeasonIndicatorsContainerPath = NodePath("VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/VBoxContainer/YearSeasonIndicatorsContainer")
+TimeOfDayIndicatorsContainerPath = NodePath("VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VBoxContainer2/TimeOfDayIndicatorsContainer")
+YearSeasonProgressBarPath = NodePath("VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/VBoxContainer/YearSeasonProgressBar")
+TimeOfDayProgressBarPath = NodePath("VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VBoxContainer2/TimeOfDayProgressBar")
+TitlePanelContainerPath = NodePath("VBoxContainer/TitlePanelContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kxw15")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Состояние мира"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "    "
+icon = ExtResource("2_pye16")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iums7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "День"
+vertical_alignment = 1
+
+[node name="DayNumberLabel" type="Label" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "125"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TimeOfDayIndicatorsContainer" type="HFlowContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TimeOfDayProgressBar" type="ProgressBar" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+show_percentage = false
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Год"
+vertical_alignment = 1
+
+[node name="YearNumberLabel" type="Label" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "5"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="YearSeasonIndicatorsContainer" type="HFlowContainer" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="YearSeasonProgressBar" type="ProgressBar" parent="VBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+show_percentage = false

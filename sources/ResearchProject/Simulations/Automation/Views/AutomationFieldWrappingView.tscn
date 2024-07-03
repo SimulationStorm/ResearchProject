@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0w2oe0i47fqu"]
+
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichCheckBox.cs" id="1_ufh2m"]
+
+[node name="AutomationFieldWrappingView" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.102
+anchor_bottom = 0.092
+offset_right = -195.84
+offset_bottom = -99.36
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Закольцованность поля"
+
+[node name="FieldWrappingBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HSeparator" type="HSeparator" parent="FieldWrappingBox"]
+layout_mode = 2
+
+[node name="HorizontalFieldWrappingCheckBox" type="CheckBox" parent="FieldWrappingBox"]
+layout_mode = 2
+focus_mode = 0
+text = " По горизонтали"
+script = ExtResource("1_ufh2m")
+
+[node name="VerticalFieldWrappingCheckBox" type="CheckBox" parent="FieldWrappingBox"]
+layout_mode = 2
+focus_mode = 0
+text = " По вертикали"
+script = ExtResource("1_ufh2m")

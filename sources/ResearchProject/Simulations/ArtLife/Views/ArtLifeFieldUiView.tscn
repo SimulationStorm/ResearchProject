@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gllg1j2t4hl2"]
+
+[ext_resource type="Script" path="res://Simulations/ArtLife/Views/ArtLifeFieldUiView.cs" id="1_bbfbl"]
+
+[node name="ArtLifeFieldUiView" type="Node2D"]
+script = ExtResource("1_bbfbl")

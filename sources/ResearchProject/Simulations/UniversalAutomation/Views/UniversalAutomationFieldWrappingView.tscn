@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1uvffi8u8qdw"]
+
+[ext_resource type="PackedScene" uid="uid://c0w2oe0i47fqu" path="res://Simulations/Automation/Views/AutomationFieldWrappingView.tscn" id="1_7vej2"]
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationFieldWrappingView.cs" id="2_ms8ic"]
+
+[node name="UniversalAutomationFieldWrappingView" instance=ExtResource("1_7vej2")]
+script = ExtResource("2_ms8ic")
+HorizontalFieldWrappingCheckBoxPath = NodePath("FieldWrappingBox/HorizontalFieldWrappingCheckBox")
+VerticalFieldWrappingCheckBoxPath = NodePath("FieldWrappingBox/VerticalFieldWrappingCheckBox")

@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=3 uid="uid://cv7sap1sshudg"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_888td"]
+[ext_resource type="Script" path="res://Core/Views/TopPanelView.cs" id="2_4empq"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichMenuButton.cs" id="3_2wd2a"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichOptionButton.cs" id="5_bsvhq"]
+[ext_resource type="Texture2D" uid="uid://32tj3eh0welt" path="res://Assets/Icons/ControlPanel/Play.png" id="5_o7ek1"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichButton.cs" id="6_3tjnc"]
+[ext_resource type="Texture2D" uid="uid://d07gq50etjwor" path="res://Assets/Icons/ControlPanel/Pause.png" id="7_0pd25"]
+[ext_resource type="Texture2D" uid="uid://be34c035d02q7" path="res://Assets/Icons/ControlPanel/Reset.png" id="8_xh4mx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nm4r"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.223529, 0.239216, 0.278431, 0.937255)
+
+[sub_resource type="InputEventKey" id="InputEventKey_upoew"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_guy0v"]
+events = [SubResource("InputEventKey_upoew")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_aj4iq"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_6t4lg"]
+events = [SubResource("InputEventKey_aj4iq")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_b35em"]
+device = -1
+keycode = 4194308
+
+[sub_resource type="Shortcut" id="Shortcut_f7l4s"]
+events = [SubResource("InputEventKey_b35em")]
+
+[node name="TopPanelView" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.0208519
+offset_bottom = 15.48
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Панель управления симуляцией.
+Здесь расположены основные элементы управления."
+theme = ExtResource("1_888td")
+script = ExtResource("2_4empq")
+MainMenuButtonPath = NodePath("PanelContainer/HBoxContainer/HBoxContainer/MainMenuButton")
+ViewMenuButtonPath = NodePath("PanelContainer/HBoxContainer/HBoxContainer/ViewMenuButton")
+HelpButtonPath = NodePath("")
+StartButtonPath = NodePath("PanelContainer/HBoxContainer/CenterContainer/HBoxContainer/StartButton")
+StopButtonPath = NodePath("PanelContainer/HBoxContainer/CenterContainer/HBoxContainer/StopButton")
+ResetButtonPath = NodePath("PanelContainer/HBoxContainer/CenterContainer/HBoxContainer/ResetButton")
+SimulationModeOptionButtonPath = NodePath("PanelContainer/HBoxContainer/HBoxContainer2/SimulationModeOptionButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nm4r")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainMenuButton" type="MenuButton" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "KEY_APP"
+switch_on_hover = true
+script = ExtResource("3_2wd2a")
+
+[node name="ViewMenuButton" type="MenuButton" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "KEY_VIEW"
+switch_on_hover = true
+script = ExtResource("3_2wd2a")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="PanelContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_constants/icon_max_width = 20
+shortcut = SubResource("Shortcut_guy0v")
+icon = ExtResource("5_o7ek1")
+flat = true
+script = ExtResource("6_3tjnc")
+
+[node name="StopButton" type="Button" parent="PanelContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_disabled_color = Color(1, 0, 0, 1)
+theme_override_constants/icon_max_width = 20
+shortcut = SubResource("Shortcut_6t4lg")
+icon = ExtResource("7_0pd25")
+flat = true
+script = ExtResource("6_3tjnc")
+
+[node name="ResetButton" type="Button" parent="PanelContainer/HBoxContainer/CenterContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 20
+shortcut = SubResource("Shortcut_f7l4s")
+icon = ExtResource("8_xh4mx")
+flat = true
+script = ExtResource("6_3tjnc")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "KEY_SIMULATION_MODE"
+vertical_alignment = 1
+
+[node name="SimulationModeOptionButton" type="OptionButton" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+item_count = 3
+popup/item_0/text = "KEY_LIFE_LIKE_AUTOMATION"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_UNIVERSAL_AUTOMATION"
+popup/item_1/id = 2
+popup/item_2/text = "KEY_ART_LIFE"
+popup/item_2/id = 1
+script = ExtResource("5_bsvhq")
+popup/item_0/icon = null

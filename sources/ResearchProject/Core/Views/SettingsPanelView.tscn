@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://ijnk58iv7oqn"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_xa65v"]
+[ext_resource type="StyleBox" uid="uid://b2nmqe84p215t" path="res://Assets/StyleBoxes/PanelTitleStyleBox.tres" id="2_nkq54"]
+[ext_resource type="Script" path="res://Core/Views/SettingsPanelView.cs" id="2_wr0l7"]
+[ext_resource type="StyleBox" uid="uid://dt1ku81fshfyg" path="res://Assets/StyleBoxes/PanelBodyStyleBox.tres" id="4_keybn"]
+[ext_resource type="PackedScene" uid="uid://kjx3i8ycycyw" path="res://Core/Views/CloseButton.tscn" id="4_l0v0g"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichColorPickerButton.cs" id="5_rwykn"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichCheckButton.cs" id="6_ux36d"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichOptionButton.cs" id="8_5xpfi"]
+
+[node name="SettingsPanelView" type="Control"]
+layout_mode = 3
+anchor_right = 0.133
+anchor_bottom = 0.131
+offset_right = 0.639984
+offset_bottom = 0.519974
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xa65v")
+script = ExtResource("2_wr0l7")
+LanguageOptionButtonPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3/LanguageOptionButton")
+FieldBackgroundColorPickerPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/FieldBackgroundColorPicker")
+VSyncCheckButtonPath = NodePath("VBoxContainer/PanelContainer/VBoxContainer/VSyncCheckButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_nkq54")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_SETTINGS"
+vertical_alignment = 1
+
+[node name="CloseButton" parent="VBoxContainer/TitlePanelContainer/HBoxContainer" instance=ExtResource("4_l0v0g")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_keybn")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_LANGUAGE"
+vertical_alignment = 1
+
+[node name="LanguageOptionButton" type="OptionButton" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+script = ExtResource("8_5xpfi")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_FIELD_BACKGROUND"
+vertical_alignment = 1
+
+[node name="FieldBackgroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 14
+script = ExtResource("5_rwykn")
+
+[node name="VSyncCheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "KEY_V_SYNC"
+script = ExtResource("6_ux36d")

@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://busjrc6o46crj"]
+
+[ext_resource type="StyleBox" uid="uid://cage01d24knts" path="res://Assets/StyleBoxes/PanelShadowStyleBox.tres" id="1_14sg1"]
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationStateView.cs" id="1_fiykb"]
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_w00mh"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichColorPickerButton.cs" id="1_xvr4n"]
+[ext_resource type="Texture2D" uid="uid://cowlfag7eu8p" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/Icons/Visible.png" id="2_vskas"]
+[ext_resource type="StyleBox" uid="uid://dqgirghknxrxk" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/TitleStyleBox.tres" id="3_2mx75"]
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="3_14ao6"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/ToggleButton.cs" id="3_sw7bs"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichButton.cs" id="5_frgp6"]
+[ext_resource type="Script" path="res://Addons/RichControls/RichTextEdit.cs" id="6_whuqh"]
+[ext_resource type="StyleBox" uid="uid://35ity73v0nkr" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/BodyStyleBox.tres" id="8_b2ibd"]
+
+[node name="UniversalAutomationStateView" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.222
+anchor_bottom = 0.099
+offset_right = 0.759979
+offset_bottom = 0.0799942
+theme = ExtResource("1_w00mh")
+theme_override_styles/panel = ExtResource("1_14sg1")
+script = ExtResource("1_fiykb")
+DeleteButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/DeleteButton")
+NameTextEditPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer/NameBox/NameTextEdit")
+ColorPickerButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer/ColorBox/ColorPickerButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_2mx75")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CollapseToggleButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+text = "Состояние #1"
+icon = ExtResource("2_vskas")
+flat = true
+alignment = 0
+script = ExtResource("3_sw7bs")
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_colors/icon_pressed_color = Color(0.262745, 0.768627, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.262745, 0.768627, 1, 1)
+theme_override_constants/icon_max_width = 14
+icon = ExtResource("3_14ao6")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_frgp6")
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("8_b2ibd")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NameBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer/NameBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Название"
+vertical_alignment = 1
+
+[node name="NameTextEdit" type="TextEdit" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer/NameBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 12
+scroll_fit_content_height = true
+script = ExtResource("6_whuqh")
+
+[node name="ColorBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer/ColorBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Цвет"
+vertical_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer2/VBoxContainer/ColorBox"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 13
+script = ExtResource("1_xvr4n")

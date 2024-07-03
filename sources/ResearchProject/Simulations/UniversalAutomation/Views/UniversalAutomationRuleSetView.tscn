@@ -1,0 +1,166 @@
+[gd_scene load_steps=15 format=3 uid="uid://u7tgm5tqihkn"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_i32pb"]
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationRuleSetView.cs" id="1_wnunm"]
+[ext_resource type="Texture2D" uid="uid://cowlfag7eu8p" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/Icons/Visible.png" id="2_gl7iq"]
+[ext_resource type="StyleBox" uid="uid://cage01d24knts" path="res://Assets/StyleBoxes/PanelShadowStyleBox.tres" id="2_pkqxh"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/ToggleButton.cs" id="3_e3rey"]
+[ext_resource type="StyleBox" uid="uid://dqgirghknxrxk" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/TitleStyleBox.tres" id="4_2pqux"]
+[ext_resource type="Texture2D" uid="uid://ckg6fobqcojgj" path="res://Assets/Icons/Common/MoveUp.png" id="4_13o2b"]
+[ext_resource type="Texture2D" uid="uid://7t6lnbsmdjil" path="res://Assets/Icons/Common/MoveDown.png" id="6_dnhyy"]
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="6_pc1ye"]
+[ext_resource type="Script" path="res://Addons/RichControls/Ranges/RichHSlider.cs" id="7_fvv2c"]
+[ext_resource type="Script" path="res://Addons/RichControls/RichTextEdit.cs" id="8_bkesy"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichCheckButton.cs" id="10_mox4m"]
+[ext_resource type="StyleBox" uid="uid://35ity73v0nkr" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/BodyStyleBox.tres" id="11_q1q1t"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichButton.cs" id="12_j83xa"]
+
+[node name="UniversalAutomationRuleSetView" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.420208
+anchor_bottom = 0.873963
+offset_right = -460.8
+offset_bottom = -794.88
+theme = ExtResource("1_i32pb")
+theme_override_styles/panel = ExtResource("2_pkqxh")
+script = ExtResource("1_wnunm")
+MoveUpButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/MoveUpButton")
+MoveDownButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/MoveDownButton")
+DeleteButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/DeleteButton")
+ApplicationsNumberLabelPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/ApplicationsNumberBox/HBoxContainer/ApplicationsNumberLabel")
+ApplicationsNumberSliderPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/ApplicationsNumberBox/ApplicationsNumberSlider")
+RuleViewsBoxPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RuleViewsBox")
+AddRuleButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/AddRuleButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_2pqux")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="CollapseToggleButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+text = " Набор правил #1"
+icon = ExtResource("2_gl7iq")
+flat = true
+alignment = 0
+script = ExtResource("3_e3rey")
+
+[node name="MoveUpButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+icon = ExtResource("4_13o2b")
+flat = true
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("12_j83xa")
+
+[node name="MoveDownButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+icon = ExtResource("6_dnhyy")
+flat = true
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("12_j83xa")
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 14
+icon = ExtResource("6_pc1ye")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("12_j83xa")
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_q1q1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NameBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="SetNameCheckButton" type="CheckButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/MarginContainer/NameBox"]
+layout_mode = 2
+focus_mode = 0
+text = "Задать название"
+script = ExtResource("10_mox4m")
+
+[node name="NameTextEdit" type="TextEdit" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/MarginContainer/NameBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 12
+scroll_fit_content_height = true
+script = ExtResource("8_bkesy")
+
+[node name="ApplicationsNumberBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ApplicationsNumberBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ApplicationsNumberBox/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Применить"
+vertical_alignment = 2
+
+[node name="ApplicationsNumberLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ApplicationsNumberBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "2 147 483 647 раз"
+vertical_alignment = 2
+
+[node name="ApplicationsNumberSlider" type="HSlider" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ApplicationsNumberBox"]
+layout_mode = 2
+min_value = 1.0
+max_value = 2.14748e+09
+value = 1.0
+exp_edit = true
+script = ExtResource("7_fvv2c")
+
+[node name="AddRuleButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Добавить правило"
+expand_icon = true
+script = ExtResource("12_j83xa")
+
+[node name="RuleViewsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10

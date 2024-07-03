@@ -1,0 +1,39 @@
+keys,ru,en
+
+KEY_APP,Приложение,Application
+KEY_QUIT,Выйти,Quit
+
+KEY_VIEW,Вид,View
+
+KEY_HELP_INFO,Справочная информация,Help information
+
+KEY_SETTINGS,Настройки,Settings
+KEY_LANGUAGE,Язык,Language
+KEY_FIELD_BACKGROUND,Фон поля,Field background
+KEY_V_SYNC,Верт. синхронизация,Vertical sync.
+
+KEY_BASIC_INFO,Общая информация,Basic information
+KEY_FPS,Кадров в сек.,Frames per sec.
+KEY_ITERATION_NUMBER,№ итерации,Iteration №
+KEY_FIELD_SIZE,Размер поля,Field size
+KEY_FIELD_CELL_COUNT,Число клеток,Cell count
+
+KEY_CONTROL_PANEL,Панель управления,Control panel
+KEY_SIMULATION_SPEED,Скорость симуляции,Simulation speed
+KEY_SIMULATION_SPEED_UNLIMITED,не огр.,unlim.
+KEY_CELL_SIZE,Размер клетки,Cell size
+KEY_FIELD_SCALE,Масштаб поля,Field scale
+KEY_SKIP_FRAMES,Пропуск кадров,Frames skipping
+KEY_SKIP,Пропускать,Skip
+KEY_SKIP_EVERY,каждые,every
+KEY_SKIP_ALL,всех,all
+KEY_FIELD_GRID,Сетка поля,Field grid
+
+KEY_SIMULATION_MODE,Режим симуляции,Simulation mode
+KEY_LIFE_LIKE_AUTOMATION,Клеточный автомат life-like,Life-like cellular automation
+KEY_UNIVERSAL_AUTOMATION,Универсальный клеточный автомат,Universal celllular automation
+KEY_ART_LIFE,Искусственная жизнь,Artificial life
+
+KEY_SIMULATION_MENU,Меню симуляции,Simulation menu
+
+KEY_SIMULATION_STATS,Статистика,Statistics

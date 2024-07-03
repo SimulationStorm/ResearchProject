@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b26x1ra67luf"]
+
+[ext_resource type="PackedScene" uid="uid://r8sxcrevblfy" path="res://Simulations/Automation/Views/AutomationDrawingModeView.tscn" id="1_l44cm"]
+[ext_resource type="Script" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationDrawingModeView.cs" id="2_gsg72"]
+
+[node name="LifeLikeAutomationDrawingModeView" instance=ExtResource("1_l44cm")]
+script = ExtResource("2_gsg72")
+DrawingModeCheckButtonPath = NodePath("DrawingModeCheckButton")
+DrawingModeControlsBoxPath = NodePath("DrawingModeControls")
+BrushShapesBoxPath = NodePath("DrawingModeControls/VBoxContainer/BrushShapesBox")
+BrushRadiusLabelPath = NodePath("DrawingModeControls/BrushRadiusBox/HBoxContainer/BrushRadiusLabel")
+BrushRadiusSliderPath = NodePath("DrawingModeControls/BrushRadiusBox/BrushRadiusSlider")
+BrushCellStatesBoxPath = NodePath("DrawingModeControls/VBoxContainer2/BrushCellStatesBox")

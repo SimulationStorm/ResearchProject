@@ -1,0 +1,366 @@
+[gd_scene load_steps=21 format=3 uid="uid://dpyc7mkuegj3u"]
+
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationRuleView.cs" id="1_bgsum"]
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_hd8kn"]
+[ext_resource type="Texture2D" uid="uid://cowlfag7eu8p" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/Icons/Visible.png" id="1_mqy8v"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/ToggleButton.cs" id="2_bekl1"]
+[ext_resource type="StyleBox" uid="uid://cage01d24knts" path="res://Assets/StyleBoxes/PanelShadowStyleBox.tres" id="2_gbttg"]
+[ext_resource type="Texture2D" uid="uid://ckg6fobqcojgj" path="res://Assets/Icons/Common/MoveUp.png" id="4_6iatr"]
+[ext_resource type="StyleBox" uid="uid://dqgirghknxrxk" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/TitleStyleBox.tres" id="4_w68iu"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichButton.cs" id="5_68epu"]
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="5_kachw"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichOptionButton.cs" id="6_fnwfx"]
+[ext_resource type="Texture2D" uid="uid://7t6lnbsmdjil" path="res://Assets/Icons/Common/MoveDown.png" id="6_kkqkd"]
+[ext_resource type="Script" path="res://Addons/RichControls/Ranges/RichHSlider.cs" id="7_c2y26"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichCheckButton.cs" id="8_hjl6r"]
+[ext_resource type="Script" path="res://Addons/RichControls/RichTextEdit.cs" id="8_u7p1b"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RadioButton.cs" id="9_eauf3"]
+[ext_resource type="StyleBox" uid="uid://35ity73v0nkr" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/BodyStyleBox.tres" id="11_v1e3y"]
+[ext_resource type="Script" path="res://Addons/RichControls/CollapsiblePanelContainer.cs" id="14_3b3uo"]
+[ext_resource type="PackedScene" uid="uid://neasi5xo1rk0" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationNeighborhoodView.tscn" id="17_ojxw4"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7fbwp"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_gt0sh"]
+
+[node name="UniversalAutomationRuleView" type="PanelContainer" node_paths=PackedStringArray("ConditionalControls")]
+anchors_preset = -1
+anchor_right = 0.148
+anchor_bottom = 0.672
+offset_right = -284.16
+offset_bottom = -725.76
+theme = ExtResource("1_hd8kn")
+theme_override_styles/panel = ExtResource("2_gbttg")
+script = ExtResource("1_bgsum")
+MoveUpButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/MoveUpButton")
+MoveDownButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/MoveDownButton")
+DeleteButtonPath = NodePath("VBoxContainer/TitlePanelContainer/HBoxContainer/DeleteButton")
+SetNameCheckButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/NameBox/SetNameCheckButton")
+NameTextEditPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/NameBox/NameTextEdit")
+SetProbabilityCheckButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/ProbabilityBox/SetProbabilityCheckButton")
+ProbabilityLabelPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/ProbabilityBox/ProbabilitySlider/ProbabilityLabel")
+ProbabilitySliderPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/ProbabilityBox/ProbabilitySlider")
+SetConditionCheckButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/SetConditionCheckButton")
+OldStateOptionButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/OldStateBox/OldStateOptionButton")
+NewStateOptionButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NewStateBox/NewStateOptionButton")
+NeighborStateOptionButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborStateBox/NeighborStateOptionButton")
+ConditionalControls = [NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborStateBox"), NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborhoodView"), NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox")]
+NeighborhoodViewPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborhoodView")
+TotalisticRadioButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypeRadioButtonsBox/TotalisticRadioButton")
+NontotalisticRadioButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypeRadioButtonsBox/NontotalisticRadioButton")
+NeighborCountsBoxPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborCountsBox")
+NeighborPositionsGridPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/CenterContainer/NeighborPositionsGrid")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_w68iu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="CollapseToggleButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+text = " Правило #1"
+icon = ExtResource("1_mqy8v")
+flat = true
+alignment = 0
+script = ExtResource("2_bekl1")
+
+[node name="MoveUpButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+icon = ExtResource("4_6iatr")
+flat = true
+alignment = 0
+icon_alignment = 1
+script = ExtResource("5_68epu")
+
+[node name="MoveDownButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+icon = ExtResource("6_kkqkd")
+flat = true
+alignment = 0
+icon_alignment = 1
+script = ExtResource("5_68epu")
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/icon_max_width = 14
+icon = ExtResource("5_kachw")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_68epu")
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_v1e3y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NameBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SetNameCheckButton" type="CheckButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/NameBox"]
+layout_mode = 2
+focus_mode = 0
+text = "Задать название"
+script = ExtResource("8_hjl6r")
+
+[node name="NameTextEdit" type="TextEdit" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/NameBox"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 5
+theme_override_font_sizes/font_size = 12
+scroll_fit_content_height = true
+script = ExtResource("8_u7p1b")
+
+[node name="ProbabilityBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SetProbabilityCheckButton" type="CheckButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ProbabilityBox"]
+layout_mode = 2
+focus_mode = 0
+text = "Задать вероятность"
+script = ExtResource("8_hjl6r")
+
+[node name="ProbabilitySlider" type="HSlider" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ProbabilityBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("7_c2y26")
+
+[node name="ProbabilityLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/ProbabilityBox/ProbabilitySlider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.809654
+anchor_top = -1.4995
+anchor_right = 0.940453
+anchor_bottom = -0.2495
+offset_left = -0.072998
+offset_top = -0.00799942
+offset_right = -6.7347
+offset_bottom = -0.00799942
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 12
+text = "50 %"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SetConditionCheckButton" type="CheckButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Задать условие"
+script = ExtResource("8_hjl6r")
+
+[node name="StatesBox" type="PanelContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_gbttg")
+script = ExtResource("14_3b3uo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox"]
+layout_mode = 2
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_w68iu")
+
+[node name="CollapseToggleButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+text = "Состояния клеток"
+icon = ExtResource("1_mqy8v")
+flat = true
+alignment = 0
+script = ExtResource("2_bekl1")
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_v1e3y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OldStateBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/OldStateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Для клетки в состоянии"
+vertical_alignment = 1
+
+[node name="OldStateOptionButton" type="OptionButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/OldStateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+script = ExtResource("6_fnwfx")
+
+[node name="NewStateBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NewStateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "Изменить состояние на"
+vertical_alignment = 1
+
+[node name="NewStateOptionButton" type="OptionButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NewStateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+script = ExtResource("6_fnwfx")
+
+[node name="NeighborStateBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborStateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "При состоянии соседних клеток"
+vertical_alignment = 1
+
+[node name="NeighborStateOptionButton" type="OptionButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/StatesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/NeighborStateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+script = ExtResource("6_fnwfx")
+
+[node name="NeighborhoodView" parent="VBoxContainer/BodyPanelContainer/VBoxContainer" instance=ExtResource("17_ojxw4")]
+layout_mode = 2
+
+[node name="RuleTypesBox" type="PanelContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_gbttg")
+script = ExtResource("14_3b3uo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox"]
+layout_mode = 2
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_w68iu")
+
+[node name="CollapseToggleButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+text = "Тип условия"
+icon = ExtResource("1_mqy8v")
+flat = true
+alignment = 0
+script = ExtResource("2_bekl1")
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_v1e3y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "По количествам соседних клеток"
+script = ExtResource("2_bekl1")
+
+[node name="ToggleButton2" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "По позициям соседних клеток"
+script = ExtResource("2_bekl1")
+
+[node name="RuleTypeRadioButtonsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypeRadioButtonsBox"]
+layout_mode = 2
+text = "Тип условия"
+
+[node name="TotalisticRadioButton" type="CheckBox" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypeRadioButtonsBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+button_group = SubResource("ButtonGroup_7fbwp")
+text = " По количествам соседних клеток"
+script = ExtResource("9_eauf3")
+
+[node name="NontotalisticRadioButton" type="CheckBox" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypeRadioButtonsBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+button_group = SubResource("ButtonGroup_gt0sh")
+text = " По позициям соседних клеток"
+script = ExtResource("9_eauf3")
+
+[node name="NeighborCountsBox" type="HFlowContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NeighborPositionsGrid" type="GridContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SelectAllButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 14
+text = "Выбрать все"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_68epu")
+
+[node name="ResetAllButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RuleTypesBox/VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 14
+text = "Сбросить"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_68epu")

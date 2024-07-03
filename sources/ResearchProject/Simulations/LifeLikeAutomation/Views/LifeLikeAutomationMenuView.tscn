@@ -1,0 +1,368 @@
+[gd_scene load_steps=13 format=3 uid="uid://5cvy7eelt637"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_kytbi"]
+[ext_resource type="Script" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationMenuView.cs" id="2_goch4"]
+[ext_resource type="StyleBox" uid="uid://b2nmqe84p215t" path="res://Assets/StyleBoxes/PanelTitleStyleBox.tres" id="3_nmyga"]
+[ext_resource type="PackedScene" uid="uid://kjx3i8ycycyw" path="res://Core/Views/CloseButton.tscn" id="4_7rddg"]
+[ext_resource type="StyleBox" uid="uid://dt1ku81fshfyg" path="res://Assets/StyleBoxes/PanelBodyStyleBox.tres" id="5_cn6we"]
+[ext_resource type="PackedScene" uid="uid://brhmp5kx715ql" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationRuleView.tscn" id="5_myk1w"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichButton.cs" id="5_yutnx"]
+[ext_resource type="Script" path="res://Addons/RichControls/Ranges/RichHSlider.cs" id="6_twxss"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichColorPickerButton.cs" id="7_q4fi8"]
+[ext_resource type="PackedScene" uid="uid://b26x1ra67luf" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationDrawingModeView.tscn" id="10_hgrqc"]
+[ext_resource type="PackedScene" uid="uid://b35eeatsb5ecq" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationFieldWrappingView.tscn" id="11_ernui"]
+
+[sub_resource type="SystemFont" id="SystemFont_j3spv"]
+subpixel_positioning = 0
+
+[node name="LifeLikeAutomationMenuView" type="Control"]
+layout_mode = 3
+anchor_right = 0.208
+anchor_bottom = 0.999815
+offset_right = 0.639984
+offset_bottom = 0.200012
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kytbi")
+script = ExtResource("2_goch4")
+CurrentRuleLabelPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/HBoxContainer/CurrentRuleLabel")
+RuleViewPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/VBoxContainer/VBoxContainer/RuleView")
+ResetRuleButtonPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/VBoxContainer/VBoxContainer/ResetRuleButton")
+CurrentKindLabelPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox/HBoxContainer/CurrentKindLabel")
+KindCategoryTabContainerPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox/VBoxContainer/KindCategoryTabContainer")
+CurrentPatternLabelPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/HBoxContainer/CurrentPatternLabel")
+PatternCategoryTabContainerPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/VBoxContainer/VBoxContainer/PatternCategoryTabContainer")
+UnselectPatternButtonPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/VBoxContainer/VBoxContainer/UnselectPatternButton")
+LiveDensityLabelPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/HBoxContainer/LiveDensityLabel")
+LiveDensitySliderPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/VBoxContainer/VBoxContainer/LiveDensitySlider")
+PopulateButtonPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/VBoxContainer/VBoxContainer/PopulateButton")
+DeadCellColorPickerButtonPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/HBoxContainer/DeadCellColorColorPickerButton")
+AliveCellColorPickerButtonPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/HBoxContainer2/AliveCellColorPickerButton")
+ChooseRandomCellColorsButtonPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/ChooseRandomCellColorsButton")
+AlgorithmsBoxPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/AlgorithmsBox/VBoxContainer/AlgorithmsBox")
+DrawingModeViewPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/DrawingModeView")
+FieldWrappingViewPath = NodePath("VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/FieldWrappingView")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_nmyga")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_SIMULATION_MENU"
+vertical_alignment = 1
+
+[node name="CloseButton" parent="VBoxContainer/TitlePanelContainer/HBoxContainer" instance=ExtResource("4_7rddg")]
+layout_mode = 2
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_cn6we")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="RuleBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_j3spv")
+theme_override_font_sizes/font_size = 16
+text = "Произвольное правило"
+vertical_alignment = 1
+
+[node name="CurrentRuleLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/HBoxContainer"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "b3/s23"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RuleView" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/VBoxContainer/VBoxContainer" instance=ExtResource("5_myk1w")]
+layout_mode = 2
+
+[node name="ResetRuleButton" type="Button" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/RuleBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Сбросить правило"
+script = ExtResource("5_yutnx")
+
+[node name="KindsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_j3spv")
+theme_override_font_sizes/font_size = 16
+text = "Разновидности"
+vertical_alignment = 1
+
+[node name="CurrentKindLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox/HBoxContainer"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Игра \"Жизнь\""
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="KindCategoryTabContainer" type="TabContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/KindsBox/VBoxContainer"]
+layout_mode = 2
+tab_alignment = 1
+drag_to_rearrange_enabled = true
+tab_focus_mode = 0
+
+[node name="PatternsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("SystemFont_j3spv")
+theme_override_font_sizes/font_size = 16
+text = "Шаблоны"
+vertical_alignment = 1
+
+[node name="CurrentPatternLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/HBoxContainer"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "не выбран"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PatternCategoryTabContainer" type="TabContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+tab_alignment = 1
+drag_to_rearrange_enabled = true
+tab_focus_mode = 0
+
+[node name="UnselectPatternButton" type="Button" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PatternsBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Отменить выбор шаблона"
+script = ExtResource("5_yutnx")
+
+[node name="PopulationBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("SystemFont_j3spv")
+theme_override_font_sizes/font_size = 16
+text = "Заселение"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "плотность жизни: "
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LiveDensityLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "50 %"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LiveDensitySlider" type="HSlider" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+script = ExtResource("6_twxss")
+
+[node name="PopulateButton" type="Button" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/PopulationBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "Заселить случайным образом"
+script = ExtResource("5_yutnx")
+
+[node name="ColorsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_j3spv")
+theme_override_font_sizes/font_size = 16
+text = "Цвета"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Мёртвая клетка"
+vertical_alignment = 1
+
+[node name="DeadCellColorColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = " "
+color = Color(1, 1, 1, 1)
+script = ExtResource("7_q4fi8")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Живая клетка"
+vertical_alignment = 1
+
+[node name="AliveCellColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = " "
+script = ExtResource("7_q4fi8")
+
+[node name="ChooseRandomCellColorsButton" type="Button" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/ColorsBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Устанавливает произвольные цвета живых и мёртвых клеток."
+focus_mode = 0
+text = "Выбрать случайные цвета"
+script = ExtResource("5_yutnx")
+
+[node name="DrawingModeView" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_hgrqc")]
+layout_mode = 2
+
+[node name="FieldWrappingView" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_ernui")]
+layout_mode = 2
+
+[node name="AlgorithmsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/AlgorithmsBox"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_j3spv")
+theme_override_font_sizes/font_size = 16
+text = "Алгоритм"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/AlgorithmsBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/AlgorithmsBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="AlgorithmsBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/ScrollContainer/MarginContainer/VBoxContainer/AlgorithmsBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5

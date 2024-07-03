@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://kjx3i8ycycyw"]
+
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="1_pdqhk"]
+
+[node name="CloseButton" type="Button"]
+anchors_preset = -1
+anchor_right = 0.011
+anchor_bottom = 0.02
+offset_right = -21.12
+offset_bottom = -21.6
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_constants/icon_max_width = 12
+icon = ExtResource("1_pdqhk")
+flat = true
+icon_alignment = 1

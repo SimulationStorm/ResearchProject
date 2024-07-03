@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0fejw2u32f4u"]
+
+[ext_resource type="Script" path="res://Simulations/ArtLife/Views/CellInfoPanelView.cs" id="1_7grq8"]
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_scq1f"]
+[ext_resource type="Texture2D" uid="uid://rimvjsvsuegb" path="res://Assets/Icons/ArtLife/temperature.png" id="3_5ijva"]
+[ext_resource type="Texture2D" uid="uid://d0akol8162x33" path="res://Assets/Icons/ArtLife/Acidity.png" id="5_gw6eo"]
+[ext_resource type="Texture2D" uid="uid://dv63xf3mtyb2m" path="res://Assets/Icons/Common/Cross.png" id="9_0c7ft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5m2if"]
+content_margin_left = 8.0
+content_margin_right = 2.0
+bg_color = Color(0.121569, 0.12549, 0.133333, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3ngp"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.223529, 0.239216, 0.278431, 0.937255)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CellInfoPanelView" type="Control"]
+layout_mode = 3
+anchor_right = 0.144792
+anchor_bottom = 0.211111
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_scq1f")
+script = ExtResource("1_7grq8")
+TemperatureLabelPath = NodePath("VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer/TemperatureLabel")
+AcidityLabelPath = NodePath("VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer2/AcidityLabel")
+IndicatorsContainerPath = NodePath("VBoxContainer/PanelContainer/IndicatorsContainer")
+TitlePanelContainerPath = NodePath("VBoxContainer/TitlePanelContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5m2if")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Информация о клетке"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "    "
+icon = ExtResource("9_0c7ft")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3ngp")
+
+[node name="IndicatorsContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/IndicatorsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_5ijva")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Температура"
+vertical_alignment = 1
+
+[node name="TemperatureLabel" type="Label" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "100,00 °"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/IndicatorsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_gw6eo")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Кислотность"
+vertical_alignment = 1
+
+[node name="AcidityLabel" type="Label" parent="VBoxContainer/PanelContainer/IndicatorsContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "7,0 pH"
+horizontal_alignment = 2
+vertical_alignment = 1

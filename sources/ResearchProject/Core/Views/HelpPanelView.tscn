@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://ij04am0xxnq"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_chay0"]
+[ext_resource type="Script" path="res://Core/Views/HelpPanelView.cs" id="2_iuelh"]
+[ext_resource type="StyleBox" uid="uid://b2nmqe84p215t" path="res://Assets/StyleBoxes/PanelTitleStyleBox.tres" id="3_g4d1r"]
+[ext_resource type="PackedScene" uid="uid://kjx3i8ycycyw" path="res://Core/Views/CloseButton.tscn" id="4_attbj"]
+[ext_resource type="StyleBox" uid="uid://dt1ku81fshfyg" path="res://Assets/StyleBoxes/PanelBodyStyleBox.tres" id="5_2lkst"]
+
+[node name="HelpPanelView" type="Control"]
+layout_mode = 3
+anchor_right = 0.333
+anchor_bottom = 0.333
+offset_right = 0.640015
+offset_bottom = 0.359985
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_chay0")
+script = ExtResource("2_iuelh")
+TitlePanelContainerPath = NodePath("VBoxContainer/TitlePanelContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_g4d1r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_HELP_INFO"
+vertical_alignment = 1
+
+[node name="CloseButton" parent="VBoxContainer/TitlePanelContainer/HBoxContainer" instance=ExtResource("4_attbj")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_2lkst")
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+
+[node name="О проекте" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
+layout_mode = 2
+
+[node name="Авторы" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Начало работы" type="ScrollContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 18
+text = "Панель управления"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Регулятор скорости симуляции"
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/TabContainer/Начало работы/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Определяет скорость обновления поколения. Изменение скорости определяется путем ввода целых чисел от 1 до 1000 циклов/сек, либо посредством нажатия на стрелки вверх и вниз."
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="Конечный автомат" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Искусственная жизнь" type="VBoxContainer" parent="VBoxContainer/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2

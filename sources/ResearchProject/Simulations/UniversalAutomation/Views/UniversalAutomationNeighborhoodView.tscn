@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://neasi5xo1rk0"]
+
+[ext_resource type="StyleBox" uid="uid://cage01d24knts" path="res://Assets/StyleBoxes/PanelShadowStyleBox.tres" id="1_aiyxe"]
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_m6avj"]
+[ext_resource type="Script" path="res://Simulations/UniversalAutomation/Views/UniversalAutomationNeighborhoodView.cs" id="2_32vkq"]
+[ext_resource type="Script" path="res://Addons/RichControls/Ranges/RichHSlider.cs" id="2_gogii"]
+[ext_resource type="StyleBox" uid="uid://dqgirghknxrxk" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/TitleStyleBox.tres" id="3_u7ybu"]
+[ext_resource type="Texture2D" uid="uid://cowlfag7eu8p" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/Icons/Visible.png" id="4_m5yai"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichButton.cs" id="4_sjvbv"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/ToggleButton.cs" id="5_dw5gm"]
+[ext_resource type="StyleBox" uid="uid://35ity73v0nkr" path="res://Addons/RichControls/Assets/CollapsiblePanelContainer/StyleBoxes/BodyStyleBox.tres" id="6_wnfy3"]
+[ext_resource type="Script" path="res://Addons/RichControls/Buttons/RichOptionButton.cs" id="9_mkcob"]
+
+[node name="UniversalAutomationNeighborhoodView" type="PanelContainer"]
+offset_top = 136.0
+offset_right = 372.0
+offset_bottom = 310.0
+theme_override_styles/panel = ExtResource("1_aiyxe")
+script = ExtResource("2_32vkq")
+RadiusLabelPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RadiusBox/HBoxContainer/RadiusLabel")
+RadiusSliderPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/RadiusBox/RadiusSlider")
+TemplateOptionButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/TemplateBox/TemplateOptionButton")
+PositionButtonsGridPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/CenterContainer/PositionButtonsGrid")
+SelectAllPositionsButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer/SelectAllPositionsButton")
+ResetPositionsButtonPath = NodePath("VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer/ResetPositionsButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_u7ybu")
+
+[node name="CollapseToggleButton" type="Button" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_constants/icon_max_width = 15
+theme_override_font_sizes/font_size = 14
+text = "Окрестность"
+icon = ExtResource("4_m5yai")
+flat = true
+alignment = 0
+script = ExtResource("5_dw5gm")
+
+[node name="BodyPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_wnfy3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_m6avj")
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="RadiusBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RadiusBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RadiusBox/HBoxContainer"]
+layout_mode = 2
+text = "Радиус"
+
+[node name="RadiusLabel" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RadiusBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "4 кл."
+vertical_alignment = 1
+
+[node name="RadiusSlider" type="HSlider" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/RadiusBox"]
+layout_mode = 2
+script = ExtResource("2_gogii")
+
+[node name="TemplateBox" type="VBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/TemplateBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Шаблон"
+vertical_alignment = 1
+
+[node name="TemplateOptionButton" type="OptionButton" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/TemplateBox"]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("9_mkcob")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PositionButtonsGrid" type="GridContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BodyPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SelectAllPositionsButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "Выбрать все"
+script = ExtResource("4_sjvbv")
+
+[node name="ResetPositionsButton" type="Button" parent="VBoxContainer/BodyPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "Сбросить"
+script = ExtResource("4_sjvbv")

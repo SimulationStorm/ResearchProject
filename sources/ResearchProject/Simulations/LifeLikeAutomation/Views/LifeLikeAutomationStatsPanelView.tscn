@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccpycc7la1xji"]
+
+[ext_resource type="Theme" uid="uid://cwk2djglwmsif" path="res://Assets/Themes/MainTheme.tres" id="1_3s8u7"]
+[ext_resource type="Script" path="res://Simulations/LifeLikeAutomation/Views/LifeLikeAutomationStatsPanelView.cs" id="2_lm8b8"]
+[ext_resource type="PackedScene" uid="uid://kjx3i8ycycyw" path="res://Core/Views/CloseButton.tscn" id="3_t5wvb"]
+[ext_resource type="Script" path="res://Addons/LiveCharts/CartesianChart.cs" id="4_o8vg5"]
+[ext_resource type="Script" path="res://Addons/LiveCharts/PieChart.cs" id="5_g2lte"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rw6yv"]
+content_margin_left = 8.0
+content_margin_right = 1.0
+bg_color = Color(0.121569, 0.12549, 0.133333, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fyor"]
+bg_color = Color(0.223529, 0.239216, 0.278431, 0.937255)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="LifeLikeAutomationStatsPanelView" type="Control"]
+layout_mode = 3
+anchor_top = -7.40334e-05
+anchor_right = 0.417
+anchor_bottom = 0.556
+offset_top = 0.0799561
+offset_right = -0.640076
+offset_bottom = -0.480042
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3s8u7")
+script = ExtResource("2_lm8b8")
+LineChartPath = NodePath("VBoxContainer/PanelContainer/MarginContainer/TabContainer/Линейный график/MarginContainer/VBoxContainer/LineChart")
+LineChartScrollbarPath = NodePath("VBoxContainer/PanelContainer/MarginContainer/TabContainer/Линейный график/MarginContainer/VBoxContainer/LineChartScrollbar")
+ColumnChartPath = NodePath("VBoxContainer/PanelContainer/MarginContainer/TabContainer/Столбчатая диаграмма/MarginContainer/ColumnChart")
+PieChartPath = NodePath("VBoxContainer/PanelContainer/MarginContainer/TabContainer/Круговая диаграмма/MarginContainer/PieChart")
+TitlePanelContainerPath = NodePath("VBoxContainer/TitlePanelContainer")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = []
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rw6yv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TitlePanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "KEY_SIMULATION_STATS"
+vertical_alignment = 1
+
+[node name="CloseButton" parent="VBoxContainer/TitlePanelContainer/HBoxContainer" instance=ExtResource("3_t5wvb")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8fyor")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Линейный график" type="Control" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Линейный график"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Линейный график/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="LineChart" type="Panel" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Линейный график/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_o8vg5")
+
+[node name="LineChartScrollbar" type="Panel" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Линейный график/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+script = ExtResource("4_o8vg5")
+
+[node name="Столбчатая диаграмма" type="Control" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Столбчатая диаграмма"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="ColumnChart" type="Panel" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Столбчатая диаграмма/MarginContainer"]
+layout_mode = 2
+script = ExtResource("4_o8vg5")
+
+[node name="Круговая диаграмма" type="Control" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Круговая диаграмма"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="PieChart" type="Panel" parent="VBoxContainer/PanelContainer/MarginContainer/TabContainer/Круговая диаграмма/MarginContainer"]
+layout_mode = 2
+script = ExtResource("5_g2lte")
